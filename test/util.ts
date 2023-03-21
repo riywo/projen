@@ -50,7 +50,7 @@ afterAll((done) => {
       // Note - fs-extra.removeSync is idempotent, so we're safe if the
       // directory has already been cleaned up before we get there!
       fs.removeSync(dir);
-    } catch (e) {
+    } catch (e: any) {
       done.fail(e);
     }
     autoRemove.delete(dir);
