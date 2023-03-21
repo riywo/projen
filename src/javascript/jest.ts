@@ -489,7 +489,10 @@ export interface JestConfigOptions {
 }
 
 export class Transform {
-  public constructor(private readonly name: string, private readonly options: any) { }
+  public constructor(
+    private readonly name: string,
+    private readonly options: any
+  ) {}
 
   /**
    * @jsii ignore
@@ -504,7 +507,10 @@ export class Transform {
 }
 
 export class WatchPlugin {
-  public constructor(private readonly name: string, private readonly options: any) { }
+  public constructor(
+    private readonly name: string,
+    private readonly options: any
+  ) {}
 
   /**
    * @jsii ignore
@@ -622,7 +628,10 @@ export interface HasteConfig {
 }
 
 export class JestReporter {
-  public constructor(private readonly name: string, private readonly options?: { [key: string]: any; }) { }
+  public constructor(
+    private readonly name: string,
+    private readonly options?: { [key: string]: any }
+  ) {}
 
   /**
    * @jsii ignore
@@ -673,7 +682,10 @@ export class Jest extends Component {
   private readonly watchIgnorePatterns: string[];
   private readonly coverageReporters: string[];
   private readonly reporters: JestReporter[];
-  private readonly jestConfig?: JestConfigOptions & { readonly additionalOptions: undefined, [key: string]: unknown };
+  private readonly jestConfig?: JestConfigOptions & {
+    readonly additionalOptions: undefined;
+    [key: string]: unknown;
+  };
   private readonly extraCliOptions: string[];
   private _snapshotResolver: string | undefined;
 
@@ -742,7 +754,9 @@ export class Jest extends Component {
     if (options.junitReporting ?? true) {
       const reportsDir = DEFAULT_TEST_REPORTS_DIR;
 
-      this.addReporter(new JestReporter("jest-junit", { outputDirectory: reportsDir }));
+      this.addReporter(
+        new JestReporter("jest-junit", { outputDirectory: reportsDir })
+      );
 
       project.addDevDeps("jest-junit@^13");
 
